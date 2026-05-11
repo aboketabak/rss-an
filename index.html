@@ -1,254 +1,202 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; -webkit-text-stroke: #000000; min-height: 16.0px}
-    span.s1 {font-kerning: none}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mon GitHub</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    :root {
+      --green: #00ff41;
+      --dark: #0d0d0d;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--green);
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px, transparent 2px,
+        rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px
+      );
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes flicker {
+      0%,100% { opacity: 1; }
+      92% { opacity: 1; }
+      93% { opacity: 0.8; }
+      94% { opacity: 1; }
+      96% { opacity: 0.9; }
+      97% { opacity: 1; }
+    }
+
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .terminal {
+      width: 680px;
+      max-width: 95vw;
+      border: 2px solid var(--green);
+      box-shadow: 0 0 20px var(--green);
+      animation: flicker 8s infinite;
+    }
+
+    .terminal-bar {
+      background: var(--green);
+      color: #0d0d0d;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .terminal-body {
+      padding: 24px;
+      line-height: 1.8;
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-shadow: 0 0 10px var(--green);
+    }
+
+    .subtitle {
+      color: #007a1f;
+      margin-bottom: 10px;
+    }
+
+    hr {
+      border-color: #007a1f;
+      margin: 16px 0;
+    }
+
+    .section-title {
+      margin-bottom: 8px;
+      text-shadow: 0 0 6px var(--green);
+    }
+
+    .about { color: #00cc33; }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 1em;
+      background: var(--green);
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 1s infinite;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .tag {
+      border: 1px solid var(--green);
+      padding: 2px 10px;
+      font-size: 0.85rem;
+    }
+
+    .tag:hover {
+      background: var(--green);
+      color: #0d0d0d;
+      cursor: default;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .link-item {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    .link-item::before { content: '> '; }
+
+    .link-item:hover {
+      text-shadow: 0 0 8px var(--green);
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 20px;
+      color: #007a1f;
+      font-size: 0.8rem;
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="fr"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Mon GitHub&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;display=swap');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>:root {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--green: #00ff41;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--dark: #0d0d0d;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--dim: #007a1f;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>* {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: var(--dark);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--green);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: 'Share Tech Mono', monospace;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>min-height: 100vh;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>overflow: hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/* Scanlines effect */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body::before {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>content: '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: fixed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>top: 0; left: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%; height: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: repeating-linear-gradient(</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>to bottom,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>transparent 0px,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>transparent 2px,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>rgba(0, 0, 0, 0.15) 2px,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>rgba(0, 0, 0, 0.15) 4px</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>pointer-events: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 999;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.terminal {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 680px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 2px solid var(--green);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>box-shadow: 0 0 20px var(--green), inset 0 0 20px rgba(0,255,65,0.03);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>animation: flicker 8s infinite;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.terminal-bar {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: var(--green);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--dark);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 6px 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.8rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>justify-content: space-between;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.terminal-bar span {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.terminal-bar span b {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.terminal-body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 28px 32px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.prompt {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--dim);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.85rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>h1 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>letter-spacing: 4px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-shadow: 0 0 10px var(--green);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 4px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.subtitle {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.85rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--dim);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 30px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>hr {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-top: 1px solid var(--dim);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 20px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.section-title {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.75rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--dim);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>letter-spacing: 2px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.about {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>line-height: 1.8;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 24px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.tags {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 28px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.tag {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 1px solid var(--green);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 4px 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.78rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>letter-spacing: 1px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-shadow: 0 0 6px var(--green);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.links {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.link-item {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.88rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--green);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>transition: text-shadow 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.link-item:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-shadow: 0 0 12px var(--green);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.link-item::before {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>content: '&gt;';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--dim);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.cursor {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: inline-block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 1.1em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: var(--green);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>vertical-align: text-bottom;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>animation: blink 1s step-end infinite;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.footer {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 28px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.72rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--dim);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: right;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>@keyframes blink {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>50% { opacity: 0; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>@keyframes flicker {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>0%, 97%, 100% { opacity: 1; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>98% { opacity: 0.85; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>99% { opacity: 1; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>99.5% { opacity: 0.9; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="terminal"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="terminal-bar"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span&gt;~/github/profile&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span&gt;&lt;b&gt;[−]&lt;/b&gt; &lt;b&gt;[□]&lt;/b&gt; &lt;b&gt;[×]&lt;/b&gt;&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="terminal-body"&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="prompt"&gt;$ whoami&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h1&gt;TON_PSEUDO&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="subtitle"&gt;// Développeur · Créateur · Explorateur&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;hr/&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="section-title"&gt;## À PROPOS&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="about"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Passionné par le code et la création numérique.&lt;br/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Je construis des projets open-source, j'explore de nouvelles&lt;br/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>technologies et j'aime résoudre des problèmes complexes.&lt;span class="cursor"&gt;&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;hr/&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="section-title"&gt;## STACK&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="tags"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Python&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;JavaScript&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;HTML/CSS&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Git&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Linux&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Docker&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;hr/&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="section-title"&gt;## LIENS&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="links"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a class="link-item" href="https://github.com/TON_PSEUDO" target="_blank"&gt;github.com/TON_PSEUDO&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a class="link-item" href="mailto:toi@email.com"&gt;toi@email.com&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a class="link-item" href="https://ton-portfolio.com" target="_blank"&gt;ton-portfolio.com&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="footer"&gt;// system ready — 2026&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+  <div class="terminal">
+    <div class="terminal-bar">
+      <span>~/portfolio/index.html</span>
+      <span>[ ■ ]</span>
+    </div>
+    <div class="terminal-body">
+
+      <p class="subtitle">$ whoami</p>
+      <h1>TON_PSEUDO</h1>
+      <p class="subtitle">// Développeur · Créateur · Explorateur</p>
+
+      <hr/>
+
+      <p class="section-title">## À PROPOS</p>
+      <p class="about">
+        Passionné par le code et la création numérique.<br/>
+        Je construis des projets open-source et j'explore<br/>
+        de nouvelles technologies.<span class="cursor"></span>
+      </p>
+
+      <hr/>
+
+      <p class="section-title">## STACK</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">Git</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Docker</span>
+      </div>
+
+      <hr/>
+
+      <p class="section-title">## LIENS</p>
+      <div class="links">
+        <a class="link-item" href="https://github.com/TON_PSEUDO" target="_blank">github.com/TON_PSEUDO</a>
+        <a class="link-item" href="mailto:toi@email.com">toi@email.com</a>
+      </div>
+
+      <p class="footer">// system ready — 2026</p>
+
+    </div>
+  </div>
+
 </body>
 </html>
