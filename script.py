@@ -13,7 +13,7 @@ response.raise_for_status()
 soup = BeautifulSoup(response.text, "html.parser")
 
 fg = FeedGenerator()
-fg.title("Questions AN - Université")
+fg.title("Questions à l'AN : 'Université'")
 fg.link(href=URL)
 fg.description("Suivi automatique")
 
